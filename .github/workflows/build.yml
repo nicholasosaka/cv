@@ -1,8 +1,8 @@
 name: Build LaTeX document
-
 on:
   push:
-    branches: [main]
+    tags:
+      - "*"
 
 jobs:
   build_latex:
@@ -14,3 +14,10 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
+      - name: Rename PDF output 
+        run: mv main.pdf osaka-cv.pdf
+      - name: Release with asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: osaka-cv.pdf
+
