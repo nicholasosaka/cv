@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[USenglish]{babel} 
+\usepackage[super]{nth}
+\usepackage{datetime}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage[strict,autostyle]{csquotes} 
+\usepackage[final, tracking=true, kerning=true]{microtype}
+\usepackage{tabto}
+\usepackage{hyperref}
+
+\geometry{
+    letterpaper,
+    left=1.5cm,
+    right=1.5cm,
+    top=2cm,
+    bottom=2cm
+ }
+ 
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {Nicholas Osaka},
+    pdftitle    = {Nicholas Osaka: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+
+\begin{document}
+\raggedright{}
+% name
+\huge{\textbf{Nicholas Osaka}}
+\normalsize
+
+% affiliation & contact
+\vspace{1em}
+\begin{minipage}[t]{0.700\textwidth}
+    Master's Student in Ethics and Applied Philosophy\\
+    Department of Philosophy \\
+    University of North Carolina at Charlotte
+\end{minipage}
+\begin{minipage}[t]{0.275\textwidth}
+    \flushright{}
+    \href{mailto:nosaka@charlotte.edu}{nosaka@charlotte.edu} \\
+    \href{https://nicholas.osaka.fyi}{nicholas.osaka.fyi}
+\end{minipage}
+
+% education
+\section*{\normalsize{\MakeUppercase{Education}}}
+\begin{tablist}
+    \item[M.A.]  \tab{}Ethics and Applied Philosophy (in progress), University of North Carolina at Charlotte, 2024
+    \item[B.A.]  \tab{}Philosophy (\textit{summa cum laude}), University of North Carolina at Charlotte, 2022
+    \item[B.S.]  \tab{}Computer Science (Mathematics Minor, \textit{summa cum laude}), University of North Carolina at Charlotte, 2022
+\end{tablist}
+
+% honors and awards
+\section*{\normalsize{\MakeUppercase{Honors and Awards}}}
+\begin{tablist}
+    \item[2022] \tab{}Third Place Award: \nth{22} Annual Southern Appalachian Undergraduate Philosophy Conference
+    \item[2020] \tab{}Atkins Library Undergraduate Research Award
+    \item[2019] \tab{}Student Marshal for Commencement
+\end{tablist}
+
+% conference papers and presentations
+\section*{\normalsize{\MakeUppercase{Conference Activity}}}
+\subsection*{\normalsize{Paper Presentations}}
+\begin{tablist}
+    \item[2023] \tab{}\enquote{Why a Socialist Cryptocurrency Can Never Exist.} The \nth{61} Meeting of the Society for Phenomenology and Existential Philosophy. Toronto, Canada. October 12--14.
+    \item[2023] \tab{}\enquote{Feminist Practices of the Nikkei: Japanese Diasporic Feminisms Between and Across Generations.} \textit{philo}SOPHIA \nth{16} Annual Conference. Charlotte, North Carolina. June 1--3.
+    \item[2023] \tab{}\enquote{Non-Fungible Tokens and Neoliberal Asset Logics/Economies via the Metaverse.} Digital Worlds Workshop. Virtual. April 21--23.
+    \item[2023] \tab{}\enquote{Japanese Anarcha-Feminism through the Seitō Literary Magazine.} Marquette University's Annual Graduate Philosophy Conference on Hidden Figures. Milwaukee, Wisconsin. March 24.
+    \item[2022] \tab{}\enquote{Japanese Ethical Philosophy and Algorithm Design.} \nth{22} Annual Southern Appalachian Undergraduate Philosophy Conference. Asheville, North Carolina. April 15--16.
+\end{tablist}
+
+% service
+\section*{\normalsize{\MakeUppercase{Service}}}
+\subsection*{\normalsize{Profession}}
+\begin{tablist}
+    \item[2023] \tab{}Organizer, Panel Moderator, and Reviewer for Ethics and Applied Philosophy Graduate Conference
+    \item[2023] \tab{}Disability and Accessibility Committee, \textit{philo}SOPHIA.
+    \item[2022] \tab{}Reviewer for Ethics and Applied Philosophy Graduate Conference
+\end{tablist}
+\subsection*{\normalsize{Extracurricular University}}
+\begin{tablist}
+    \item[2022-2023] \tab{}Treasurer, Philosophical Union of UNC Charlotte
+    \item[2021-2022] \tab{}President, Club for AI Research
+    \item[2021-2022] \tab{}Vice President, Amnesty International at UNC Charlotte
+
+\end{tablist}
+
+% certifications
+\section*{\normalsize{\MakeUppercase{Certifications}}}
+\begin{itemize}
+    \item Amazon Web Services Certified Cloud Practitioner
+    \item CITI Program IRB Members Certification
+    \item CITI Program Social and Behavioral Sciences: Responsible Conduct of Research Certification
+    \item CITI Program Engineering: Responsible Conduct of Research Certification
+\end{itemize}
+
+% professional memberships
+\section*{\normalsize{\MakeUppercase{Professional Memberships}}}
+\begin{itemize}
+    \item Society for Phenomenology and Existential Philosophy
+    \item American Philosophical Association
+    \item \textit{philo}SOPHIA: society for continental feminism
+    \item Association for Computing Machinery \textemdash{} Special Interest Group on Accessible Computing (ACM SIGACCESS)
+\end{itemize}
+
+\end{document}
