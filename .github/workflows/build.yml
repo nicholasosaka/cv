@@ -20,4 +20,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: osaka-cv.pdf
+          token: ${{ secrets.TOKEN }}
 
