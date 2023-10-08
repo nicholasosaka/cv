@@ -10,6 +10,9 @@
 \usepackage[final, tracking=true, kerning=true]{microtype} \usepackage{tabto}
 \usepackage{hyperref}
 \usepackage{soul}
+\usepackage[style=iso]{datetime2}
+\usepackage{fancyhdr}
+
 
 \geometry{
     letterpaper,
@@ -68,15 +71,21 @@
 
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
 
+\fancypagestyle{firstpage}
+{
+    \fancyhead[L]{Curriculum Vitae}
+    \fancyhead[R]{last revised \today}
+}
 
 \begin{document}
+\thispagestyle{firstpage}
 \raggedright{}
 % name
 \huge{\textbf{Nicholas Osaka}}
 \normalsize
 
 % affiliation & contact
-\vspace{1em}
+\vspace{.75em}
 \begin{minipage}[t]{0.700\textwidth}
     Master's Student in Ethics and Applied Philosophy\\
     Department of Philosophy \\
