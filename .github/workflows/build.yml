@@ -13,10 +13,10 @@ jobs:
       - name: Compile PDF
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: osaka-cv.tex
+          root_file: cv.tex
       - name: Release with asset
         uses: softprops/action-gh-release@v1
         with:
-          files: osaka-cv.pdf
+          files: cv.pdf
           token: ${{ secrets.TOKEN }}
 
