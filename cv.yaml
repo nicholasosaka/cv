@@ -16,3 +16,46 @@ education:
   - Philosophy (<i>summa cum laude</i>), University of North Carolina at Charlotte, 2022.
   B.S.:
   - Computer Science (Mathematics Minor, <i>summa cum laude</i>), University of North Carolina at Charlotte, 2022.
+
+presentations:
+  Conference Presentations (Refereed):
+    - date: 2023-10-13
+      title: Why a Socialist Cryptocurrency Can Never Exist
+      venue: at the 61st Meeting of the Society for Phenomenology and Existential Philosophy [Friday individual paper session]
+      location: Toronto Metropolitan University, Ontario
+    - date: 2023-06-02
+      title: "Feminist Practices of the Nikkei: Japanese Diasporic Feminisms Between and Across Generations"
+      venue: "at the 16th meeting of <i>philo</i>SOPHIA: feminist society"
+      location: UNC Charlotte, NC
+    - date: 2023-03-24
+      title: "Japanese Anarcha-Feminism through the Seitō Literary Magazine"
+      venue: at Marquette University's Annual Graduate Philosophy Conference on Hidden Figures
+      location: Marquette University, WI
+    - date: 2022-04-16
+      title: Japanese Ethical Philosophy and Algorithm Design
+      venue: at the 22nd Annual Southern Appalachian Undergraduate Philosophy Conference
+      location: UNC Asheville, NC
+  Workshop Presentations:
+    - date: 2023-04-23
+      title: Non-Fungible Tokens and Neoliberal Asset Logics/Economies via the Metaverse
+      venue: at the Digital Worlds Workshop
+      location: University of Texas at Rio Grande Valley, Virtual
+  Guest Lectures:
+    - date: 2023-10-06
+      title: "Problematizing Classification Systems and Methods: Historical Sketches and Illustrations"
+      venue: Lecture in Aileen Benedict's Introduction to Data Mining class
+      location: University of North Carolina at Charlotte
+      extra: "[Invited]"
+    - date: 2022-10-05
+      title: "Problems in Computer Vision Classification"
+      venue: Lecture in Aileen Benedict's Introduction to Data Mining class
+      location: University of North Carolina at Charlotte
+      extra: "[Invited]"
+
+public philosophy:
+  - date: 2023-06-05
+    title: "Naming and Muddling: Messiness as Pedagogy"
+    venue: Lecture in Aileen Benedict's Introduction to Data Mining class
+    location: University of North Carolina at Charlotte
+    extra: "[Invited]"
+    url: https://blog.apaonline.org/2023/07/05/naming-and-muddling-messiness-as-pedagogy/

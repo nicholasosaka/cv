@@ -3,7 +3,7 @@ import yaml, json, re
 with open("cv.yaml", 'r') as f:
     cvdata = yaml.safe_load(f)
 
-print(json.dumps(cvdata, indent=1))
+print(json.dumps(cvdata, indent=1, default=str))
 
 def clean_text(t):
     ## italics
@@ -130,6 +130,7 @@ tex_content.append(
 
 ## EDUCATION
 tex_content.append("\\section*{\\normalsize{EDUCATION}}\n\\begin{tablist}\n" + "\n".join(["\t\item[{}] \\tab{{}}{}".format(eduitem, clean_text('\\newline{}'.join(cvdata['education'][eduitem]))) for eduitem in cvdata['education']]) + "\n\\end{tablist}\n")
+
 
 tex_content.append("""
 \\end{document}
