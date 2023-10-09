@@ -5,17 +5,15 @@ on:
       - "*"
 
 jobs:
-  build_latex:
+  build_cv_tex:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Compile PDF
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: main.tex
-      - name: Rename PDF output 
-        run: mv main.pdf osaka-cv.pdf
+          root_file: osaka-cv.tex
       - name: Release with asset
         uses: softprops/action-gh-release@v1
         with:
