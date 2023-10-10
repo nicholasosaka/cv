@@ -41,4 +41,5 @@ jobs:
           committer: Nicholas Osaka <nicholas.osaka@gmail.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           title: Update CV to latest
-          branch: update-cv
+          branch: cv-update
+          delete-branch: true
