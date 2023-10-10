@@ -25,17 +25,6 @@
 \pagenumbering{gobble}
 \setlength{\parindent}{0pt}
 
-\hypersetup{
-    colorlinks  = true,
-    urlcolor    = blue,
-    citecolor   = black,
-    linkcolor   = blue,
-    pdfauthor   = {Nicholas Osaka},
-    pdftitle    = {Nicholas Osaka: Curriculum Vitae},
-    pdfsubject  = {Curriculum Vitae},
-    pdfpagemode = UseNone
-}
-
 % how far to tab for list items with left-aligned date: different fonts need different widths
 \newcommand{\listtabwidth}{1.7cm}
 
@@ -71,9 +60,20 @@
 
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
 
+%% NAME
+\def\name{Nicholas Osaka}
+\def\lastname{Osaka}
+
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = blue,
+    citecolor   = black,
+    linkcolor   = blue,
+}
+
 \fancypagestyle{firstpage}
 {
-    \fancyhead[L]{Curriculum Vitae}
+    \fancyhead[L]{Curriculum Vitae \textemdash{} \lastname}
     \fancyhead[R]{last revised \today}
 }
 
@@ -81,15 +81,15 @@
 \thispagestyle{firstpage}
 \raggedright{}
 % name
-\huge{\textbf{Nicholas Osaka}}
+\huge{\textbf{\name}}
 \normalsize
 
 % affiliation & contact
 \vspace{.75em}
 \begin{minipage}[t]{0.700\textwidth}
     Master's Student in Ethics and Applied Philosophy\\
-    Department of Philosophy \\
-    University of North Carolina at Charlotte
+    Department of Philosophy\\
+    University of North Carolina at Charlotte\\
 \end{minipage}
 \begin{minipage}[t]{0.275\textwidth}
     \flushright{}
@@ -101,21 +101,20 @@
 \end{minipage}
 
 % education
-\section*{\normalsize{\MakeUppercase{Education}}}
+\section*{\normalsize{EDUCATION}}
 \begin{tablist}
     \item[M.A.]  \tab{}Ethics and Applied Philosophy (in progress), University of North Carolina at Charlotte, 2024.\newline{}Graduate Certificate in Gender, Sexuality, and Women's Studies.
     \item[B.A.]  \tab{}Philosophy (\textit{summa cum laude}), University of North Carolina at Charlotte, 2022.
     \item[B.S.]  \tab{}Computer Science (Mathematics Minor, \textit{summa cum laude}), University of North Carolina at Charlotte, 2022.
 \end{tablist}
 
-
 % presentations
-\section*{\normalsize{\MakeUppercase{Presentations}}}
+\section*{\normalsize{PRESENTATIONS}}
 \subsection*{\normalsize{Conference Presentations (Refereed)}}
 \begin{tablist}
     \item[2023] \tab{}\enquote{Why a Socialist Cryptocurrency Can Never Exist} at the \nth{61} Meeting of the Society for Phenomenology and Existential Philosophy [Friday individual paper session]. Toronto Metropolitan University, Ontario. October 13.
-    \item[2023] \tab{}\enquote{Feminist Practices of the Nikkei: Japanese Diasporic Feminisms Between and Across Generations} at the \nth{16} meeting of \textit{philo}SOPHIA: a feminist society. UNC Charlotte, NC. June 2.
-    \item[2023] \tab{}\enquote{Japanese Anarcha-Feminism through the Seitō Literary Magazine} at Marquette University's Annual Graduate Philosophy Conference on Hidden Figures. Marquette University, WI. March 24.
+    \item[] \tab{}\enquote{Feminist Practices of the Nikkei: Japanese Diasporic Feminisms Between and Across Generations} at the \nth{16} meeting of \textit{philo}SOPHIA: a feminist society. UNC Charlotte, NC. June 2.
+    \item[] \tab{}\enquote{Japanese Anarcha-Feminism through the Seitō Literary Magazine} at Marquette University's Annual Graduate Philosophy Conference on Hidden Figures. Marquette University, WI. March 24.
     \item[2022] \tab{}\enquote{Japanese Ethical Philosophy and Algorithm Design} at the \nth{22} Annual Southern Appalachian Undergraduate Philosophy Conference. UNC Asheville, NC. April 16.
 \end{tablist}
 \subsection*{\normalsize{Workshop Presentations}}
@@ -129,13 +128,13 @@
 \end{tablist}
 
 % public philosophy
-\section*{\normalsize{\MakeUppercase{Public Philosophy}}}
+\section*{\normalsize{PUBLIC PHILOSOPHY}}
 \begin{tablist}
     \item[2023] \tab{}\enquote{\href{https://blog.apaonline.org/2023/07/05/naming-and-muddling-messiness-as-pedagogy/}{Naming and Muddling: Messiness as Pedagogy}.} Blog of the American Philosophical Association, Graduate Student Reflection Series. July 5. [Invited]
 \end{tablist}
 
 % service
-\section*{\normalsize{\MakeUppercase{Service}}}
+\section*{\normalsize{SERVICE}}
 \subsection*{\normalsize{Profession}}
 \begin{tablist}
     \item[2023-2024] \tab{}Organizer for the 2024 Ethics and Applied Philosophy Graduate Conference
@@ -149,15 +148,15 @@
     \item[2022-2023] \tab{}Treasurer, Philosophical Union of UNC Charlotte
 \end{tablist}
 
-% honors and awards
-\section*{\normalsize{\MakeUppercase{Selected Awards}}}
+% selected awards
+\section*{\normalsize{SELECTED AWARDS}}
 \begin{tablist}
     \item[2022] \tab{}Award for Paper Presentation, \nth{22} Annual Southern Appalachian Undergraduate Philosophy Conference
     \item[2020] \tab{}Atkins Library Undergraduate Research Award
 \end{tablist}
 
 % professional memberships
-\section*{\normalsize{\MakeUppercase{Professional Memberships}}}
+\section*{\normalsize{PROFESSIONAL MEMBERSHIPS}}
 \begin{itemize}
     \item Society for Phenomenology and Existential Philosophy
     \item American Philosophical Association
@@ -167,7 +166,7 @@
 \end{itemize}
 
 % certifications
-\section*{\normalsize{\MakeUppercase{Certifications}}}
+\section*{\normalsize{CERTIFICATIONS}}
 \begin{itemize}
     \item Amazon Web Services Certified Cloud Practitioner
     \item CITI Program IRB Members Certification
