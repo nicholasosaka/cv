@@ -19,4 +19,24 @@ jobs:
         with:
           files: cv.pdf
           token: ${{ secrets.TOKEN }}
-
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          repository: nicholasosaka/nosaka.xyz
+          path: nosaka.xyz
+      - name: Prepare Pull Request content
+        run: |
+          cd nosaka.xyz
+          cp ../cv.pdf web/public/cv.pdf
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.TOKEN }}
+          path: nicholasosaka/nosaka.xyz
+          add-paths: |
+            web/public/cv.pdf
+          commit-message: Update CV
+          committer: Nicholas Osaka <nicholas.osaka@gmail.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          title: Update CV to latest
+          branch: update-cv
