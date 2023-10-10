@@ -26,13 +26,15 @@ jobs:
           path: nosaka.xyz
       - name: Prepare Pull Request content
         run: |
+          pwd
+          ls
           cd nosaka.xyz
           cp ../cv.pdf web/public/cv.pdf
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.TOKEN }}
-          path: nicholasosaka/nosaka.xyz
+          path: nosaka.xyz
           add-paths: |
             web/public/cv.pdf
           commit-message: Update CV
