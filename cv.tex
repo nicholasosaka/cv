@@ -12,6 +12,7 @@
 \usepackage{soul}
 \usepackage[style=iso]{datetime2}
 \usepackage{fancyhdr}
+\usepackage{array, tabularx, graphicx}
 
 \geometry{
     letterpaper,
@@ -91,10 +92,8 @@
 \end{minipage}
 \begin{minipage}[t]{0.275\textwidth}
     \flushright{}
-    % \href{mailto:nosaka@charlotte.edu}{nosaka@charlotte.edu} \\
     nosaka@charlotte.edu\\
     +1 (704) 649-1783\\
-    % \href{https://nosaka.xyz}{nosaka.xyz}
     nosaka.xyz
 \end{minipage}
 
@@ -104,11 +103,18 @@
 
 % education
 \section*{\normalsize{EDUCATION}}
-\begin{tablist}
-    \item[M.A.]  \tab{}Ethics and Applied Philosophy (in progress), University of North Carolina at Charlotte, 2024.\newline{}Graduate Certificate in Gender, Sexuality, and Women's Studies, earned alongside M.A.
-    \item[B.A.]  \tab{}Philosophy (\textit{summa cum laude}), University of North Carolina at Charlotte, 2022.
-    \item[B.S.]  \tab{}Computer Science (Mathematics Minor, \textit{summa cum laude}), University of North Carolina at Charlotte, 2022.
-\end{tablist}
+\renewcommand{\arraystretch}{1.35}
+
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+     >{\raggedright\arraybackslash}p{11em}
+     >{\raggedright\arraybackslash\hsize=1.97\hsize\linewidth=\hsize}X
+     >{\raggedleft\arraybackslash\hsize=0.03\hsize\linewidth=\hsize}X }
+    \textbf{M.A.} & Ethics and Applied Philosophy, University of North Carolina at Charlotte & 2024\\
+    \textbf{Graduate Certificate} & Gender, Sexuality, and Women's Studies, Univ. of North Carolina at Charlotte & 2024\\
+    \textbf{B.A.} & Philosophy (\textit{summa cum laude}), University of North Carolina at Charlotte & 2022\\
+    \textbf{B.S.} & Computer Science (\textit{summa cum laude}) with a minor in Mathematics, Univ. of North Carolina at Charlotte & 2022
+\end{tabularx}
 
 % presentations
 \section*{\normalsize{PRESENTATIONS}}
@@ -152,12 +158,17 @@
 
 % awards and grants
 \section*{\normalsize{AWARDS AND GRANTS}}
-\begin{tablist}
-    \item[2023] \tab{}Center for Professional \& Applied Ethics, Conference Travel Funding, \$750
-    \item[2023] \tab{}Graduate and Professional Student Government, Conference Travel Funding, \$500
-    \item[2022] \tab{}Award for Paper Presentation, \nth{22} Annual Southern Appalachian Undergraduate Philosophy Conference, \$125
-    \item[2020] \tab{}Atkins Library Undergraduate Research Award, \$1000
-\end{tablist}
+
+\hspace{-1em}
+\begin{tabularx}{1.014\textwidth}{
+     >{\raggedright\arraybackslash}p{3.7em}
+     >{\raggedright\arraybackslash\hsize=1.875\hsize\linewidth=\hsize}X
+     >{\raggedleft\arraybackslash\hsize=0.125\hsize\linewidth=\hsize}X }
+    2023 & Center for Professional \& Applied Ethics, Conference Travel Funding & \$750\\
+    2023 & Graduate and Professional Student Government, Conference Travel Funding & \$500\\
+    2022 & Prize for Paper Presentation, \nth{22} Annual Southern Appalachian Undergraduate Philosophy Conference & \$125\\
+    2020 & Atkins Library Undergraduate Research Award & \$1000
+\end{tabularx}
 
 % professional memberships
 \section*{\normalsize{PROFESSIONAL MEMBERSHIPS}}
