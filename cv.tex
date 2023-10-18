@@ -16,7 +16,6 @@
     bottom=2cm
  }
  
-\pagenumbering{gobble}
 \setlength{\parindent}{0pt}
 
 % how far to tab for list items with left-aligned date: different fonts need different widths
@@ -69,8 +68,10 @@
 
 \pagestyle{fancy}
 \fancyhead{}
-\fancyhead[L]{Curriculum Vitae \textemdash{} \lastname~\thepage}
+\fancyhead[C]{Curriculum Vitae}
+\fancyhead[L]{\lastname~\thepage}
 \fancyhead[R]{last revised \today}
+\fancyfoot{}
 
 \raggedright{}
 % name
