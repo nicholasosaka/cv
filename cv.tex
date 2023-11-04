@@ -7,6 +7,7 @@
 \usepackage[final, tracking=true, kerning=true]{microtype} \usepackage{tabto}
 \usepackage{array, tabularx, graphicx, fancyhdr, soul, hyperref, geometry, enumitem, datetime}
 \usepackage[style=iso]{datetime2}
+\usepackage[symbol]{footmisc}
 
 \geometry{
     letterpaper,
@@ -58,11 +59,12 @@
 \def\lastname{Osaka}
 
 \hypersetup{
-    colorlinks  = true,
-    urlcolor    = blue,
-    citecolor   = black,
-    linkcolor   = blue,
+    colorlinks      = true,
+    urlcolor        = blue,
+    citecolor       = black,
+    linkcolor       = black,
 }
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \begin{document}
 
@@ -103,20 +105,25 @@
 
 \hspace{-1em}
 \begin{tabularx}{\textwidth}{
-     >{\raggedright\arraybackslash}p{11em}
+    %  >{\raggedright\arraybackslash}p{11em}
+    %  >{\raggedright\arraybackslash\hsize=1.97\hsize\linewidth=\hsize}X
+    %  >{\raggedleft\arraybackslash\hsize=0.03\hsize\linewidth=\hsize}X }
+     >{\raggedright\arraybackslash}p{3em}
      >{\raggedright\arraybackslash\hsize=1.97\hsize\linewidth=\hsize}X
      >{\raggedleft\arraybackslash\hsize=0.03\hsize\linewidth=\hsize}X }
-    \textbf{M.A.} & Ethics and Applied Philosophy (in progress), University of North Carolina at Charlotte & 2024\\
-    \textbf{Graduate Certificate} & Gender, Sexuality, and Women's Studies (in progress), Univ. of North Carolina at Charlotte & 2024\\
+
+    \textbf{M.A.} & Ethics and Applied Philosophy (in progress) with a graduate certificate in Gender, Sexuality, and Women's Studies, University of North Carolina at Charlotte & 2024\\
     \textbf{B.A.} & Philosophy (\textit{summa cum laude}), University of North Carolina at Charlotte & 2022\\
-    \textbf{B.S.} & Computer Science (\textit{summa cum laude}) with a minor in Mathematics, Univ. of North Carolina at Charlotte & 2022
+    \textbf{B.S.} & Computer Science (\textit{summa cum laude}) with a minor in Mathematics, University of North Carolina at Charlotte & 2022
 \end{tabularx}
 
 % presentations
 \section*{\normalsize{PRESENTATIONS}}
 \subsection*{\normalsize{Conference Presentations (Refereed)}}
 \begin{tablist}
-    \item[2023] \tab{}\enquote{Why a Socialist Cryptocurrency Can Never Exist} at the \nth{61} Meeting of the Society for Phenomenology and Existential Philosophy [Friday individual paper session]. Toronto Metropolitan University, Ontario. October 13.
+    \item[Future] \tab{}\enquote{Troubling the Metaverse: Disabled Phenomenologies and Feminist Critique} at the \nth{17} meeting of \textit{philo}SOPHIA: a feminist society. Mount Royal University, Calgary. March 14--17, 2024.
+    \item[] \tab{}\enquote{A Bootstrapping Problem for Web3 Adoption} at the \nth{6} Transatlantic Conference on the Ethics of Business, Trade, \& Global Governance: Ethics and Sustainability in Banking and Finance. St.~Andrews, Scotland. November 23, 2024. [Joint presentation with Violet Victoria].
+    \item[2023] \tab{}\enquote{Why a Socialist Cryptocurrency Can Never Exist: The Hermeneutical Resources of Virtual Money and Cryptocurrency} at the \nth{61} Meeting of the Society for Phenomenology and Existential Philosophy [Friday individual paper session]. Toronto Metropolitan University, Ontario. October 13.
     \item[] \tab{}\enquote{Feminist Practices of the Nikkei: Japanese Diasporic Feminisms Between and Across Generations} at the \nth{16} meeting of \textit{philo}SOPHIA: a feminist society. UNC Charlotte, NC. June 2.
     \item[] \tab{}\enquote{Japanese Anarcha-Feminism through the Seitō Literary Magazine} at Marquette University's Annual Graduate Philosophy Conference on Hidden Figures. Marquette University, WI. March 24.
     \item[2022] \tab{}\enquote{Japanese Ethical Philosophy and Algorithm Design} at the \nth{22} Annual Southern Appalachian Undergraduate Philosophy Conference. UNC Asheville, NC. April 16.
@@ -145,8 +152,8 @@
      >{\raggedright\arraybackslash}p{6.25em}
      >{\raggedright\arraybackslash}X}
     2023 -- Present & Organizer for the 2024 Ethics and Applied Philosophy Graduate Conference\\
+    2022 -- 2023 & Disability and Accessibility Committee, \textit{philo}SOPHIA: a feminist society\\
     2022 -- 2023 & Organizer, Panel Moderator, and Reviewer for the 2023 Annual Ethics and Applied Philosophy Graduate Conference\\
-    2022 -- 2023 & Disability and Accessibility Committee, \nth{16} meeting of \textit{philo}SOPHIA: a feminist society\\
     2022 & Reviewer for the 2022 Ethics and Applied Philosophy Graduate Conference
 \end{tabularx}
 \subsection*{\normalsize{Extracurricular University}}
