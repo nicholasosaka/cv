@@ -5,16 +5,16 @@
 \usepackage[super]{nth}
 \usepackage[strict,autostyle]{csquotes} 
 \usepackage[final, tracking=true, kerning=true]{microtype} \usepackage{tabto}
-\usepackage{array, tabularx, graphicx, fancyhdr, soul, hyperref, geometry, enumitem, datetime}
+\usepackage{array, tabularx, graphicx, fancyhdr, soul, hyperref, geometry, enumitem, datetime, setspace}
 \usepackage[style=iso]{datetime2}
 \usepackage[symbol]{footmisc}
 
 \geometry{
     letterpaper,
-    left=1.5cm,
-    right=1.5cm,
-    top=2cm,
-    bottom=2cm
+    left=1.25cm,
+    right=1.25cm,
+    top=1.75cm,
+    bottom=1.5cm
  }
  
 \setlength{\parindent}{0pt}
@@ -23,8 +23,8 @@
 \newcommand{\listtabwidth}{1.7cm}
 
 % define space between list items
-\newcommand{\listitemspace}{0.25em}
-
+\newcommand{\listitemspace}{0em}
+% \setlength\itemsep{-10em}
 
 \newcommand\blfootnote[1]{%
   \begingroup
@@ -34,12 +34,12 @@
 }
 
 % make unordered lists without bullets and use compact spacing
-\renewenvironment{itemize}
-{\begin{list}{}{\setlength{\leftmargin}{0em}
-                \setlength{\parskip}{0em}
-                \setlength{\itemsep}{\listitemspace}
-                \setlength{\parsep}{\listitemspace}}}
-{\end{list}}
+% \renewenvironment{itemize}
+% {\begin{list}{}{\setlength{\leftmargin}{1em}
+%                 \setlength{\parskip}{0em}
+%                 \setlength{\itemsep}{\listitemspace}
+%                 \setlength{\parsep}{\listitemspace}}}
+% {\end{list}}
 
 % make tabbed lists so content is left-aligned next to years
 \TabPositions{\listtabwidth}
@@ -70,140 +70,199 @@
 
 \pagestyle{fancy}
 \fancyhead{}
-\fancyhead[L]{Curriculum Vitae}
+\fancyhead[L]{Resume}
 \fancyhead[R]{last revised \today}
 \fancyfoot{}
 \fancyfoot[C]{\lastname~\thepage}
-
-\raggedright{}
 % name
-\huge{\textbf{\name}}
+\vspace*{-.75cm}
+\Large{\textbf{\name}}\\
 \normalsize
+\href{https://linkedin.com/in/nicholasosaka}{linkedin: nicholasosaka}\\
+\href{mailto:nicholas.osaka@thehartford.com}{nicholas.osaka@thehartford.com}\\
+(704) 649\textendash{}1783
 
-% affiliation & contact
-\vspace{.75em}
-\begin{minipage}[t]{0.700\textwidth}
-    Master's Student in Ethics and Applied Philosophy\\
-    Department of Philosophy\\
-    University of North Carolina at Charlotte\\
-\end{minipage}
-\begin{minipage}[t]{0.275\textwidth}
-    \flushright{}
-    nosaka@charlotte.edu\\
-    +1 (704) 649-1783\\
-    nosaka.xyz
-\end{minipage}
-
-\vspace{1em}
-\textbf{Areas of Interest}: Philosophy of Technology (esp. Artificial Intelligence), Feminist Philosophy, Disability Theory,\newline
-Social Epistemology, Queer Theory, Ethics and Moral Philosophy
-\noindent\rule{\textwidth}{.5pt}
 
 % education
-\section*{\normalsize{EDUCATION}}
+\section*{\normalsize{EDUCATION \& CERTIFICATIONS}}
+\vspace{-1.8em}
+\noindent\rule{\textwidth}{.5pt}
 \renewcommand{\arraystretch}{1.35}
+
+\vspace{-.75em}
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+     >{\raggedright\arraybackslash}p{2.5em}
+     >{\raggedright\arraybackslash\hsize=1.97\hsize\linewidth=\hsize}X
+     >{\raggedleft\arraybackslash\hsize=0.03\hsize\linewidth=\hsize}X }
+    \textbf{M.A.} & Ethics and Applied Philosophy, University of North Carolina at Charlotte & 2024\\
+    \textbf{B.S.} & Computer Science (\textit{summa cum laude}) with a minor in Mathematics, Univ.\ of North Carolina at Charlotte & 2022\\
+    \textbf{B.A.} & Philosophy (\textit{summa cum laude}), University of North Carolina at Charlotte & 2022
+\end{tabularx}
+
+\vspace*{1em}
 
 \hspace{-1em}
 \begin{tabularx}{\textwidth}{
-    %  >{\raggedright\arraybackslash}p{11em}
-    %  >{\raggedright\arraybackslash\hsize=1.97\hsize\linewidth=\hsize}X
-    %  >{\raggedleft\arraybackslash\hsize=0.03\hsize\linewidth=\hsize}X }
-     >{\raggedright\arraybackslash}p{3em}
      >{\raggedright\arraybackslash\hsize=1.97\hsize\linewidth=\hsize}X
      >{\raggedleft\arraybackslash\hsize=0.03\hsize\linewidth=\hsize}X }
-
-    \textbf{M.A.} & Ethics and Applied Philosophy (in progress) with a graduate certificate in Gender, Sexuality, and Women's Studies, University of North Carolina at Charlotte & 2024\\
-    \textbf{B.A.} & Philosophy (\textit{summa cum laude}), University of North Carolina at Charlotte & 2022\\
-    \textbf{B.S.} & Computer Science (\textit{summa cum laude}) with a minor in Mathematics, University of North Carolina at Charlotte & 2022
+    Amazon Web Services Certified Cloud Practitioner, verification upon request & 2022\\
 \end{tabularx}
 
-% presentations
-\section*{\normalsize{PRESENTATIONS}}
-\subsection*{\normalsize{Conference Presentations}}
-\begin{tablist}
-    \item[Future] \tab{}\enquote{Troubling the Metaverse: Disabled Phenomenologies and Feminist Critique} at the \nth{17} meeting of \textit{philo}SOPHIA: a feminist society. Mount Royal University, Calgary. March 14--17, 2024.
-    \item[2024] \tab{}\enquote{Analyzing the Bootstrapping Problem of Web3: A Tri-Conditional Approach} at the \nth{33} Annual Association for Practical and Professional Ethics International Conference. Cincinnati. February 24, 2023. [Joint presentation with Violet Victoria].
-    \item[2023] \tab{}\enquote{A Bootstrapping Problem for Web3 Adoption} at the \nth{6} Transatlantic Conference on the Ethics of Business, Trade, \& Global Governance: Ethics and Sustainability in Banking and Finance. St.~Andrews, Scotland. November 23, 2023. [Joint presentation with Violet Victoria].
-    \item[] \tab{}\enquote{Why a Socialist Cryptocurrency Can Never Exist: The Hermeneutical Resources of Virtual Money and Cryptocurrency} at the \nth{61} Meeting of the Society for Phenomenology and Existential Philosophy [Friday individual paper session]. Toronto Metropolitan University, Ontario. October 13.
-    \item[] \tab{}\enquote{Feminist Practices of the Nikkei: Japanese Diasporic Feminisms Between and Across Generations} at the \nth{16} meeting of \textit{philo}SOPHIA: a feminist society. UNC Charlotte, NC. June 2.
-    \item[] \tab{}\enquote{Japanese Anarcha-Feminism through the Seitō Literary Magazine} at Marquette University's Annual Graduate Philosophy Conference on Hidden Figures. Marquette University, WI. March 24.
-    \item[2022] \tab{}\enquote{Japanese Ethical Philosophy and Algorithm Design} at the \nth{22} Annual Southern Appalachian Undergraduate Philosophy Conference. UNC Asheville, NC. April 16.
-\end{tablist}
-\subsection*{\normalsize{Workshop Presentations}}
-\begin{tablist}
-    \item[2023] \tab{}\enquote{Non-Fungible Tokens and Neoliberal Asset Logics/Economies via the Metaverse} at the Digital Worlds Workshop. University of Texas at Rio Grande Valley, Virtual. April 23.
-\end{tablist}
-\subsection*{\normalsize{Guest Lectures}}
-\begin{tablist}
-    \item[2023] \tab{}\enquote{Problematizing Classification Systems and Methods: Historical Sketches and Illustrations.} Lecture in Aileen Benedict's Introduction to Data Mining class, University of North Carolina at Charlotte. October 6. [Invited]
-    \item[2022] \tab{}\enquote{Problems in Computer Vision Classification.} Lecture in Aileen Benedict's Introduction to Data Mining class, University of North Carolina at Charlotte. October 5. [Invited]
-\end{tablist}
-
-% public philosophy
-\section*{\normalsize{PUBLIC PHILOSOPHY AND WRITING}}
-\begin{tablist}
-    \item[2023] \tab{}\enquote{\href{https://blog.apaonline.org/2023/07/05/naming-and-muddling-messiness-as-pedagogy/}{Naming and Muddling: Messiness as Pedagogy}.} Blog of the American Philosophical Association, Graduate Student Reflection Series. July 5. [Invited]
-\end{tablist}
-
-% service
-\section*{\normalsize{SERVICE}}
-\subsection*{\normalsize{Profession}}
-\hspace{-.85em}
-\begin{tabularx}{\textwidth}{
-     >{\raggedright\arraybackslash}p{6.25em}
-     >{\raggedright\arraybackslash}X}
-    2022 -- Present & Disability and Accessibility Committee, \textit{philo}SOPHIA: a feminist society\\
-    2024 & Judge, APPE Intercollegiate Ethics Bowl National Competition\\
-    2023 -- Present & Organizer for the 2024 Ethics and Applied Philosophy Graduate Conference\\
-    2022 -- 2023 & Organizer, Panel Moderator, and Reviewer for the 2023 Annual Ethics and Applied Philosophy Graduate Conference\\
-    2022 & Reviewer for the 2022 Ethics and Applied Philosophy Graduate Conference
-\end{tabularx}
-\subsection*{\normalsize{Extracurricular University}}
-\hspace{-.85em}
-\begin{tabularx}{\textwidth}{
-    >{\raggedright\arraybackslash}p{6.25em}
-    >{\raggedright\arraybackslash}X}
-   2023 -- Present & Co-President, Philosophical Union of UNC Charlotte\\
-   2022 -- 2023 & Treasurer, Philosophical Union of UNC Charlotte\\
-\end{tabularx}
-
-% awards and grants
-\section*{\normalsize{AWARDS AND GRANTS}}
-
-\hspace{-0.85em}
-\begin{tabularx}{1.014\textwidth}{
-     >{\raggedright\arraybackslash}p{2.5em}
-     >{\raggedright\arraybackslash\hsize=1.875\hsize\linewidth=\hsize}X
-     >{\raggedright\arraybackslash\hsize=0.125\hsize\linewidth=\hsize}X }
-    \multicolumn{2}{l}{\textit{Internal \textemdash{} UNC Charlotte}}\\
-    2023 & Center for Professional \& Applied Ethics, Conference Travel Funding & \$750\\
-    2023 & Graduate and Professional Student Government, Conference Travel Funding & \$500\\
-    2022 & Graduate and Professional Student Government, Conference Travel Funding & \$250\\
-    2020 & Atkins Library Undergraduate Research Award & \$1000\\
-
-    \textit{External}\\
-    2022 & Prize for Paper Presentation, \nth{22} Annual Southern Appalachian Undergraduate Philosophy Conference & \$100\\
-
-\end{tabularx}
-
-% professional memberships
-\section*{\normalsize{PROFESSIONAL MEMBERSHIPS}}
-\begin{itemize}
-    \item Society for Phenomenology and Existential Philosophy
-    \item American Philosophical Association
-    \item \textit{philo}SOPHIA: society for continental feminism
-    \item Society for Philosophy and Disability
-    \item Association for Computing Machinery \textemdash{} Special Interest Group on Accessible Computing (ACM SIGACCESS)
-    \item Association for Professional and Practical Ethics
+\section*{\normalsize{SKILLS}}
+\vspace{-1.8em}
+\noindent\rule{\textwidth}{.5pt}
+\begin{itemize}[label={}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item \textit{Administration}: Amazon Web Services, Linux Server Administration, Continuous Integration/Development
+    \item \textit{Data Engineering}: Python, SQL, Tableau, Git, Bash, Hadoop, Spark, Data Warehousing, Docker
+    \item \textit{Architecture}: Highly-available patterns, Event-driven architecture, Semantic modeling, Research and conference experience 
 \end{itemize}
 
-% certifications
-\section*{\normalsize{CERTIFICATIONS}}
-\begin{itemize}
-    \item Amazon Web Services Certified Cloud Practitioner
-    \item CITI Program IRB Members Certification
-    \item CITI Program Social and Behavioral Sciences: Responsible Conduct of Research Certification
-    \item CITI Program Engineering: Responsible Conduct of Research Certification
+
+% experience
+\section*{\normalsize{PROFESSIONAL EXPERIENCE}}
+\vspace{-1.8em}
+\noindent\rule{\textwidth}{.5pt}
+
+\vspace{.5em}
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash\hsize=1\hsize\linewidth=\hsize}X
+    >{\raggedleft\arraybackslash\hsize=1\hsize\linewidth=\hsize}X }
+    \textbf{Data Platform Engineer} & Aug 2023 -- Present\\
+    \textit{The Hartford} & \\
+\end{tabularx}
+\vspace{-.5em}
+\begin{itemize}[label={--}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item Collaborated in implementing the EDS-wide Financial Operations Analytics System, which tracks over \$5M of cloud spend across 1,200 departments at 1/1000th of a dollar level accuracy per year.
+    \item Assisted in enabling Elastic MapReduce Serverless functionality for all LOBs. Estimates place $\sim$50\% reduction in job run time and $\sim$30-40\% reduction in compute spend.
+    \item Identified and remidiated issue with YARN job reporting that caused underreporting by $\sim$40\%. This was critical to ensure validity of reporting data which informs platform investment.
+    \item Overhauled issue creation workflow, estimated to eliminate time spent on gathering additional information on $\sim$20-30\% of issue tickets. 
 \end{itemize}
+
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+    >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+    \textbf{Solutions Architect} & Aug 2022 -- Aug 2023\\
+    \textit{The Hartford} & \\
+\end{tabularx}
+\vspace{-.5em}
+\begin{itemize}[label={--}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item Supported senior architects with creation of cloud architectural patterns for the Group Benefits organization's cloud journey.
+    \item Drafted architectural artifacts and deliverables through collaboration with architects and technical leads.
+    \item Led fact-finding and feature-definition meetings with key business and technical stakeholders to ensure deliverables pointed to appropriate solution for the business.
+    \item As part of the GB Integration Team, provided architectural designs to enhance existing Medical Underwriting application to integrate internal services with the Pega Cloud platform, OpenText Documentum, and Snowflake.
+\end{itemize}
+
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+    >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+    \textbf{ECLDP Tech \& Data Intern} & May 2021 -- Aug 2021\\
+    \textit{The Hartford} & \\
+\end{tabularx}
+\vspace{-.5em}
+\begin{itemize}[label={--}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item Built a portfolio management intake system for the Enterprise Data Office estimated to save the effort of 1/3 FTE per year with three other interns.
+    \item Led meetings with various stakeholders to identify best approaches for architecture, deployment, and access control.
+    \item Integrated analytics with Tableau Dashboard for the team to identify blockers and high priority items.
+\end{itemize}
+
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{Undergraduate Research Assistant} & May 2020 -- Aug 2020\\
+%     \textit{University of North Carolina at Charlotte} & \\
+% \end{tabularx}
+
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Participated in a National Science Foundation funded project, conducting research into community approaches to privacy and security.
+%     \item Collaborated with principal investigator and graduate students on evaluating project scope, defining features, and assessing research impact.
+%     \item Designed and implemented Android application with MVVM architecture and NoSQL cloud database backend.
+% \end{itemize}
+
+
+% projects
+\section*{\normalsize{SPECIAL PROJECTS}}
+\vspace{-1.8em}
+\noindent\rule{\textwidth}{.5pt}
+
+\vspace{.5em}
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+    >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+    \textbf{Orientation Lead} & Sept 2023 -- Present\\
+    \textit{LDP Internship Experience Team} & \\
+\end{tabularx}
+\vspace{-.5em}
+\begin{itemize}[label={--}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item Designed and prepared three days of orientation programming for 16 interns across two locations for the LDP summer internship.
+    \item Collaborated with other internal technology learning programs to identify cross-learning opportunities for interns during orientation.
+    \item Coordinating with key stakeholders to ensure interns receive the orientation materials required to succeed in their summer at The Hartford.
+\end{itemize}
+
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+    >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+    \textbf{LDP Employee Engagement Team} & Dec 2023 -- Present\\
+\end{tabularx}
+\vspace{-.5em}
+\begin{itemize}[label={--}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item Lead employee engagement initiatives for Charlotte based LDP team members, collaborating with non-LDP workplace events to deliver the best value for our team members.
+    \item Organize quarterly outings to build team culture and foster sense of belonging for all members.
+\end{itemize}
+
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+    >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+    \textbf{Engagement Lead} & Sept 2022 -- Sept 2023\\
+    \textit{LDP Internship Experience Team} & \\
+\end{tabularx}
+\vspace{-.5em}
+\begin{itemize}[label={--}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item Created 10 weeks of employee engagement content for 19 interns (with remote and hybrid work arrangements) with an overall survey rating of 94\%.
+    \item Delivered on executing over 20 unique events (including multi-site volunteering opportunities) for interns which all drove key workplace competencies in line with The Hartford's work culture.
+\end{itemize}
+
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{AB Testing Brief} & Feb 2024 -- Present\\
+% \end{tabularx}
+% \vspace{-.5em}
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Lead employee engagement initiatives for Charlotte based LDP team members, collaborating with non-LDP workplace events to deliver the best value for our team members.
+%     \item Organize quarterly outings to build team culture and foster sense of belonging for all members.
+% \end{itemize}
+
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{Competitor Filing Analysis} & July 2023 -- Nov 2023\\
+% \end{tabularx}
+% \vspace{-.5em}
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Created an internal tool for natural language processing of comeptitor filings with the Dept.~of Insurance of each state.
+%     \item Collaborated with MLC business stakeholders to identify key problems that data analysts face, such that the tool can improve analyst efficiency. 
+% \end{itemize}
+
+
 
 \end{document}
