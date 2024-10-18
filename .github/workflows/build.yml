@@ -29,7 +29,7 @@ jobs:
           pwd
           ls
           cd nosaka.xyz
-          cp ../cv.pdf web/public/cv.pdf
+          cp ../cv.pdf public/cv.pdf
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
