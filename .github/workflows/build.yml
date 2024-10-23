@@ -36,7 +36,7 @@ jobs:
           token: ${{ secrets.TOKEN }}
           path: nosaka.xyz
           add-paths: |
-            web/public/cv.pdf
+            public/cv.pdf
           commit-message: Update CV
           committer: Nicholas Osaka <nicholas.osaka@gmail.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
