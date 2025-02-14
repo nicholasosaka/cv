@@ -32,7 +32,9 @@ jobs:
           ls
           cd nosaka.xyz
           pwd
-          ls web/
+          ls 
+          echo "ls ../"
+          ls ../
           cp ../resume.pdf web/public/resume.pdf
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
