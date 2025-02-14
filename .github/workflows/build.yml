@@ -2,10 +2,10 @@ name: Build LaTeX document
 on:
   push:
     tags:
-      - "*"
+      - "industry/*-*-*"
 
 jobs:
-  build_cv_tex:
+  build_resume_tex:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -14,10 +14,12 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: cv.tex
+      - name: Rename cv to resume
+        run: mv cv.pdf resume.pdf
       - name: Release with asset
         uses: softprops/action-gh-release@v1
         with:
-          files: cv.pdf
+          files: resume.pdf
           token: ${{ secrets.TOKEN }}
       - name: Checkout website repo
         uses: actions/checkout@v4
@@ -29,17 +31,17 @@ jobs:
           pwd
           ls
           cd nosaka.xyz
-          cp ../cv.pdf web/public/cv.pdf
+          cp ../resume.pdf web/public/resume.pdf
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.TOKEN }}
           path: nosaka.xyz
           add-paths: |
-            web/public/cv.pdf
-          commit-message: Update CV
+            web/public/resume.pdf
+          commit-message: Update industry resume
           committer: Nicholas Osaka <nicholas.osaka@gmail.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          title: Update CV to latest
-          branch: cv-update
+          title: Update resume to latest
+          branch: resume-update
           delete-branch: true
