@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Compile PDF
         uses: xu-cheng/latex-action@v2
         with:
@@ -22,7 +22,7 @@ jobs:
           files: resume.pdf
           token: ${{ secrets.TOKEN }}
       - name: Checkout website repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: nicholasosaka/nosaka.xyz
           path: nosaka.xyz
