@@ -7,6 +7,8 @@ on:
 jobs:
   build_pdfs:
     runs-on: ubuntu-latest
+    env:
+      TZ: "America/New_York"
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
