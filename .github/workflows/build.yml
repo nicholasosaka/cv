@@ -1,8 +1,8 @@
 name: Build LaTeX documents
 on:
   push:
-    tags:
-      - "*"
+    branches:
+      - "main"
 
 jobs:
   build_pdfs:
