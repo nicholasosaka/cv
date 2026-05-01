@@ -154,7 +154,7 @@ jobs:
           path: .
 
       - name: Create CHANGLOG from commits where PDFs were updated
-        runs: |
+        run: |
           cat commits.txt | xargs git show -s --date=short --pretty=format:"%ad %s" > ${{github.workspace}}-CHANGELOG.txt
 
       - name: Create Release
