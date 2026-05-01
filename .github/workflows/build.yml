@@ -18,17 +18,17 @@ jobs:
             academic:
               - 'academic/**.tex'
             industry:
-              - 'induustry/**.tex'
+              - 'industry/**.tex'
 
       - name: Compile CV PDF
-        uses: xu-cheng/latex-action@v2
-        if: github.steps.changes.outputs.academic == 'true'
+        uses: xu-cheng/latex-action@v4
+        if: github.steps.changes.outputs.academic
         with:
           root_file: academic/cv.tex
 
       - name: Compile Resume PDF
-        uses: xu-cheng/latex-action@v2
-        if: github.steps.changes.outputs.industry == 'true'
+        uses: xu-cheng/latex-action@v4
+        if: github.steps.changes.outputs.industry
         with:
           root_file: industry/resume.tex
   
