@@ -32,6 +32,8 @@ jobs:
           ls
           cd nosaka.xyz
           cp ../resume.pdf public/resume.pdf
+          sha1sum public/resume.pdf
+          ls -alhtr public/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
