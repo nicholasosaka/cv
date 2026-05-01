@@ -1,45 +1,64 @@
-name: Build LaTeX document
+name: Build LaTeX documents
 on:
   push:
     tags:
       - "*"
 
 jobs:
-  build_cv_tex:
+  build_pdfs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Compile PDF
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: cv.tex
-      - name: Release with asset
-        uses: softprops/action-gh-release@v1
-        with:
-          files: cv.pdf
-          token: ${{ secrets.TOKEN }}
-      - name: Checkout website repo
-        uses: actions/checkout@v4
-        with:
-          repository: nicholasosaka/nosaka.xyz
-          path: nosaka.xyz
-      - name: Prepare Pull Request content
-        run: |
-          pwd
-          ls
-          cd nosaka.xyz
-          cp ../cv.pdf public/cv.pdf
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.TOKEN }}
-          path: nosaka.xyz
-          add-paths: |
-            public/cv.pdf
-          commit-message: Update CV
-          committer: Nicholas Osaka <nicholas.osaka@gmail.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          title: Update CV to latest
-          branch: cv-update
-          delete-branch: true
+        uses: actions/checkout@v5
+
+      - name: Extract tag name
+        run: echo "Tag name: ${{ github.ref_name }}"
+        
+  #     - name: Compile CV PDF
+  #       uses: xu-cheng/latex-action@v2
+  #       with:
+  #         root_file: academic/cv.tex
+
+  #     - name: Upload PDFs as artifacts
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: pdfs
+  #         path: |
+  #           cv.pdf
+  #           resume.pdf
+  #        # overwrite: true
+
+  #     - name: Release with asset
+  #       uses: softprops/action-gh-release@v1
+  #       with:
+  #         files: |
+  #           *.pdf
+  #         token: ${{ secrets.TOKEN }}
+
+  # update_web:
+  #   needs: build_pdfs
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout website repo
+  #       uses: actions/checkout@v4
+  #       with:
+  #         repository: nicholasosaka/nosaka.xyz
+  #         path: nosaka.xyz
+  #     - name: Get PDFs from build
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: pdfs
+  #         path: nosaka.xyz/public/
+  #     - name: Create Pull Request
+  #       uses: peter-evans/create-pull-request@v5
+  #       with:
+  #         token: ${{ secrets.TOKEN }}
+  #         path: nosaka.xyz
+  #         add-paths: |
+  #           public/*.pdf
+  #         commit-message: Update Resume/CV PDFs
+  #         committer: Nicholas Osaka <nicholas.osaka@gmail.com>
+  #         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+  #         title: Update Resume/CV PDFs to latest
+  #         branch: cv-update
+  #         delete-branch: true

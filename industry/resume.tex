@@ -1,0 +1,291 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[USenglish]{babel} 
+\usepackage[super]{nth}
+\usepackage[strict,autostyle]{csquotes} 
+\usepackage[final, tracking=true, kerning=true]{microtype} \usepackage{tabto}
+\usepackage{array, tabularx, graphicx, fancyhdr, soul, hyperref, geometry, enumitem, datetime, setspace}
+\usepackage[style=iso]{datetime2}
+\usepackage[symbol]{footmisc}
+
+\geometry{
+    letterpaper,
+    left=1.25cm,
+    right=1.25cm,
+    top=1.75cm,
+    bottom=1.5cm
+ }
+ 
+\setlength{\parindent}{0pt}
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define space between list items
+\newcommand{\listitemspace}{0em}
+% \setlength\itemsep{-10em}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+% make unordered lists without bullets and use compact spacing
+% \renewenvironment{itemize}
+% {\begin{list}{}{\setlength{\leftmargin}{1em}
+%                 \setlength{\parskip}{0em}
+%                 \setlength{\itemsep}{\listitemspace}
+%                 \setlength{\parsep}{\listitemspace}}}
+% {\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+%% NAME
+\def\name{Nicholas Osaka}
+\def\lastname{Osaka}
+
+\hypersetup{
+    colorlinks      = true,
+    urlcolor        = blue,
+    citecolor       = black,
+    linkcolor       = black,
+}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{Resume}
+\fancyhead[R]{last revised \today}
+\fancyfoot{}
+\fancyfoot[C]{\lastname}
+% name
+\vspace*{-.75cm}
+\Large{\textbf{\name}}\\
+\normalsize
+\href{https://linkedin.com/in/nicholasosaka}{linkedin: nicholasosaka}\\
+\href{mailto:nicholas.osaka@gmail.com}{nicholas.osaka@gmail.com}\\
+(704) 649\textendash{}1783
+
+
+\section*{\normalsize{SKILLS}}
+\vspace{-1.8em}
+\noindent\rule{\textwidth}{.5pt}
+\begin{itemize}[label={}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item \textit{Infrastructure (Cloud)}: AWS EMR, EC2, ECS, S3, IAM, VPC, Lambda, KMS.
+    \item \textit{Platform Engineering}: Terraform, Ansible, CI/CD, Linux Administration, Docker, Splunk, Dynatrace.
+    \item \textit{Data Engineering}: Python, SQL, Tableau, Git, Bash, Hadoop, Spark, Data Warehousing.
+    \item \textit{Architecture}: High-Availability patterns, Event-driven architecture, Semantic modeling, Research and conference experience.
+\end{itemize}
+
+% experience
+\section*{\normalsize{PROFESSIONAL EXPERIENCE}}
+\vspace{-1.8em}
+\noindent\rule{\textwidth}{.5pt}
+
+\vspace{.5em}
+
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash\hsize=1\hsize\linewidth=\hsize}X
+    >{\raggedleft\arraybackslash\hsize=1\hsize\linewidth=\hsize}X }
+    \textbf{Staff Data Platform Engineer} & Apr 2026 -- Present\\
+    \textit{The Hartford} & \\
+\end{tabularx}
+\vspace{-.5em}
+\begin{itemize}[label={•}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item Technical and execution lead for the big data platform team, serving enterprise data teams.
+    \item Driving reliability engineering change, including cost optimization initatives.
+    \item Architected multi-region disaster recovery \& resiliency patterns for the big data platform ecosystem, including persistent and transient EMR clusters, EMR Serverless, and platform application EC2 instances.
+\end{itemize}
+
+\hspace{-1em}
+\vspace{-.5em}
+
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash\hsize=1\hsize\linewidth=\hsize}X
+    >{\raggedleft\arraybackslash\hsize=1\hsize\linewidth=\hsize}X }
+    \textbf{Data Platform Engineer} & Aug 2024 -- Apr 2026\\
+    \textit{The Hartford} & \\
+\end{tabularx}
+\vspace{-.5em}
+\begin{itemize}[label={•}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item Drove several platform-wide initiatives, including platform version upgrades and migrations to open-source Python tooling.
+    \item Maintained and improved a big data processing ecosystem consisting of 2+ 45+ node AWS EMR clusters running continuously, on-demand transient clusters, and 35+ Linux EC2 instances serving over 1500 users across 350 unique applications.
+    \item Mentored and provided training to an associate-level team member on a 1 year rotation through our team.
+    \item Managed a team of 4 interns, providing guidance for an observability \& monitoring project (leveraging Dynatrace and Splunk) that supported 3 teams.
+\end{itemize}
+
+\hspace{-1em}
+
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash\hsize=.75\hsize\linewidth=\hsize}X
+    >{\raggedleft\arraybackslash\hsize=.25\hsize\linewidth=\hsize}X }
+    \textbf{Technology \& Operations Leadership Development Program Associate} & Aug 2022 -- Aug 2024\\
+    \textit{The Hartford} & \\
+\end{tabularx}
+\vspace{-.5em}
+\begin{itemize}[label={•}, leftmargin=1em]
+    \setlength\itemsep{0em}
+    \item Two year-long rotations in Data Platform Engineering and Solution Architecture teams.
+    \item Enabled Amazon EMR Serverless functionality for internal customers, estimated $\sim$50\% reduction in job run time and $\sim$30-40\% reduction in compute spend.
+    \item Led fact-finding and feature-definition meetings with key business and technical stakeholders to ensure deliverables pointed to appropriate solution for the business.
+    \item Drafted architectural artifacts and deliverables through collaboration with senior architects and technical leads.
+\end{itemize}
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{Undergraduate Research Assistant} & May 2020 -- Aug 2020\\
+%     \textit{University of North Carolina at Charlotte} & \\
+% \end{tabularx}
+
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Participated in a National Science Foundation funded project, conducting research into community approaches to privacy and security.
+%     \item Collaborated with principal investigator and graduate students on evaluating project scope, defining features, and assessing research impact.
+%     \item Designed and implemented Android application with MVVM architecture and NoSQL cloud database backend.
+% \end{itemize}
+
+% education
+\section*{\normalsize{EDUCATION \& CERTIFICATIONS}}
+\vspace{-1.8em}
+\noindent\rule{\textwidth}{.5pt}
+\renewcommand{\arraystretch}{1.35}
+
+\vspace{-.75em}
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+     >{\raggedright\arraybackslash}p{2.5em}
+     >{\raggedright\arraybackslash\hsize=1.97\hsize\linewidth=\hsize}X
+     >{\raggedleft\arraybackslash\hsize=0.03\hsize\linewidth=\hsize}X }
+    \textbf{M.A.} & Ethics and Applied Philosophy, University of North Carolina at Charlotte \\
+     & Thesis: \textit{Hermeneutical Dilution in Large Language Models: Epistemic Injustice, Language, and Statistics} & \\
+    \textbf{B.S.} & Computer Science (\textit{summa cum laude}) with a minor in Mathematics, Univ.\ of North Carolina at Charlotte & \\
+    \textbf{B.A.} & Philosophy (\textit{summa cum laude}), University of North Carolina at Charlotte & 
+\end{tabularx}
+
+\vspace*{1em}
+
+\hspace{-1em}
+\begin{tabularx}{\textwidth}{
+     >{\raggedright\arraybackslash\hsize=1.97\hsize\linewidth=\hsize}X
+     >{\raggedleft\arraybackslash\hsize=0.03\hsize\linewidth=\hsize}X }
+    Amazon Web Services Certified Solutions Architect Associate (AWS-SAA-C03) &\\
+    Amazon Web Services Certified Cloud Practitioner (AWS-CLF-C02) &\\
+    HashiCorp Terraform Associate (HCTA0-003) &\\
+ \end{tabularx}
+
+% projects
+
+% \section*{\normalsize{SPECIAL PROJECTS}}
+% \vspace{-1.8em}
+% \noindent\rule{\textwidth}{.5pt}
+
+% \vspace{.5em}
+
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{AI Ethics Advisor} & Nov 2023 -- May 2024\\
+%     \textit{AI 2030, Encode Justice} & \\
+% \end{tabularx}
+% \vspace{-.5em}
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Delivered feedback and policy suggestions on preliminary drafts of Encode Justice's AI 2030 policy platform.
+%     \item Identified key signatories in the ethics and AI ethics disciplines to garner support during critical delivery window.
+%     \item Final published platform has been featured in CNN, Fortune, TIME, South China Morning Post, and the Washington Post.
+% \end{itemize}
+
+
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{Orientation Lead} & Sept 2023 -- Aug 2024\\
+%     \textit{Leadership Development Program Internship Experience Team} & \\
+% \end{tabularx}
+% \vspace{-.5em}
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Designed and prepared three days of orientation programming for 16 interns across two locations for the LDP summer internship.
+%     \item Collaborated with other internal technology learning programs to identify cross-learning opportunities for interns during orientation.
+%     \item Coordinating with key stakeholders to ensure interns receive the orientation materials required to succeed in their summer at The Hartford.
+% \end{itemize}
+
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{Charlotte Leadership Development Program Employee Engagement Lead} & Dec 2023 -- Oct 2024\\
+%     \textit{Leadership Development Program Employee Engagement Team} & \\
+% \end{tabularx}
+% \vspace{-.5em}
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Lead employee engagement initiatives for Charlotte based LDP team members, collaborating with non-LDP workplace events to deliver the best value for our team members.
+%     \item Organize quarterly outings to build team culture and foster sense of belonging for all members.
+% \end{itemize}
+
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{Engagement Lead} & Sept 2022 -- Sept 2023\\
+%     \textit{Leadership Development Program Internship Experience Team} & \\
+% \end{tabularx}
+% \vspace{-.5em}
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Created 10 weeks of employee engagement content for 19 interns (with remote and hybrid work arrangements) with an overall survey rating of 94\%.
+%     \item Delivered on executing over 20 unique events (including multi-site volunteering opportunities) for interns which all drove key workplace competencies in line with The Hartford's work culture.
+% \end{itemize}
+
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{AB Testing Brief} & Feb 2024 -- Present\\
+% \end{tabularx}
+% \vspace{-.5em}
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Lead employee engagement initiatives for Charlotte based LDP team members, collaborating with non-LDP workplace events to deliver the best value for our team members.
+%     \item Organize quarterly outings to build team culture and foster sense of belonging for all members.
+% \end{itemize}
+
+% \hspace{-1em}
+% \begin{tabularx}{\textwidth}{
+%     >{\raggedright\arraybackslash\hsize=1.5\hsize\linewidth=\hsize}X
+%     >{\raggedleft\arraybackslash\hsize=.5\hsize\linewidth=\hsize}X }
+%     \textbf{Competitor Filing Analysis} & July 2023 -- Nov 2023\\
+% \end{tabularx}
+% \vspace{-.5em}
+% \begin{itemize}[label={--}, leftmargin=1em]
+%     \setlength\itemsep{0em}
+%     \item Created an internal tool for natural language processing of comeptitor filings with the Dept.~of Insurance of each state.
+%     \item Collaborated with MLC business stakeholders to identify key problems that data analysts face, such that the tool can improve analyst efficiency. 
+% \end{itemize}
+
+
+
+\end{document}
