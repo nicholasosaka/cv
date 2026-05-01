@@ -1,8 +1,8 @@
 name: Build LaTeX documents
 on:
   push:
-    branches:
-      - "main"
+    paths:
+      - "**.tex"
 
 jobs:
   build_pdfs:
@@ -11,19 +11,34 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v5
 
-  #     - name: Compile CV PDF
-  #       uses: xu-cheng/latex-action@v2
-  #       with:
-  #         root_file: academic/cv.tex
+      - uses: dorny/paths-filter@v4
+        id: changes
+        with:
+          filters: |
+            academic:
+              - 'academic/**.tex'
+            industry:
+              - 'induustry/**.tex'
 
-  #     - name: Upload PDFs as artifacts
-  #       uses: actions/upload-artifact@v3
-  #       with:
-  #         name: pdfs
-  #         path: |
-  #           cv.pdf
-  #           resume.pdf
-  #        # overwrite: true
+      - name: Compile CV PDF
+        uses: xu-cheng/latex-action@v2
+        if: github.steps.changes.outputs.academic == 'true'
+        with:
+          root_file: academic/cv.tex
+
+      - name: Compile Resume PDF
+        uses: xu-cheng/latex-action@v2
+        if: github.steps.changes.outputs.industry == 'true'
+        with:
+          root_file: industry/resume.tex
+  
+      - name: Upload PDFs as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: pdfs
+          path: |
+            *.pdf
+         # overwrite: true
 
   #     - name: Release with asset
   #       uses: softprops/action-gh-release@v1
@@ -32,20 +47,24 @@ jobs:
   #           *.pdf
   #         token: ${{ secrets.TOKEN }}
 
-  # update_web:
-  #   needs: build_pdfs
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout website repo
-  #       uses: actions/checkout@v4
-  #       with:
-  #         repository: nicholasosaka/nosaka.xyz
-  #         path: nosaka.xyz
-  #     - name: Get PDFs from build
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: pdfs
-  #         path: nosaka.xyz/public/
+  update_web:
+    needs: build_pdfs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          repository: nicholasosaka/nosaka.xyz
+          path: nosaka.xyz
+      - name: Get PDFs from build
+        uses: actions/download-artifact@v3
+        with:
+          name: pdfs
+          path: nosaka.xyz/public/
+
+      - name: Verify PDFs
+        run: |
+          ls -l nosaka.xyz/public/
   #     - name: Create Pull Request
   #       uses: peter-evans/create-pull-request@v5
   #       with:
