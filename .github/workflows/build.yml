@@ -37,9 +37,10 @@ jobs:
       - name: Upload PDFs as artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: pdfs
+          name: pdfs-${{github.sha}}
           path: |
             *.pdf
+          retention-days: 14
          # overwrite: true
 
   #     - name: Release with asset
@@ -61,7 +62,7 @@ jobs:
       - name: Get PDFs from build
         uses: actions/download-artifact@v7
         with:
-          name: pdfs
+          name: pdfs-${{github.sha}}
           path: nosaka.xyz/public/
 
       - name: Verify PDFs
@@ -90,7 +91,7 @@ jobs:
       - name: Get PDFs from build
         uses: actions/download-artifact@v7
         with:
-          name: pdfs
+          name: pdfs-${{github.sha}}
           path: .
 
       - name: Create Release
