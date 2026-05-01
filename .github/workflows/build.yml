@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - "**.tex"
+    tags:
+      - "**"
 
 jobs:
   build_pdfs:
@@ -88,11 +90,72 @@ jobs:
     needs: build_pdfs
     runs-on: ubuntu-latest
     steps:
-      - name: Get PDFs from build
+
+      - name: Get Changes between Tags
+        id: changes
+        uses: simbo/changes-between-tags-action@v1
+        with:
+          tag-pattern: "*"
+
+      - name: Output Data
+        run: |
+          echo "tag: ${{ steps.changes.outputs.tag }}"
+          echo "changes: ${{ steps.changes.outputs.changes }}"
+
+      - name: Get tex files added or modified
+        run: |
+          echo "${{ steps.changes.outputs.changes }}" | awk '{print $2}' | xargs git rev-parse > commits.txt
+          cat commits.txt
+          cat commits.txt | xargs git show --oneline --pretty="" --name-only --diff-filter=AM | sort -u > files_changed.txt
+          cat files_changed.txt
+          
+          if [ -s files_changed.txt ] && grep cv files_changed.txt > /dev/null; then
+            echo "Found CV update."
+            echo CV_UPDATE=1 >> $GITHUB_ENV
+            echo "CV_LATEST=$(cat commits.txt | xargs git show --oneline --pretty="format:%H" --name-only --diff-filter=AM | sed -e ':a' -e 'N' -e '$!ba' -e 's/\([^\n]\)\n\([^\n]\)/\1 \2/g' | grep cv | awk  'NR==1 {print $1}')" >> $GITHUB_ENV
+          else
+            echo "No CV update found."
+            echo CV_UPDATE=0 >> $GITHUB_ENV
+          fi
+
+          if [ -s files_changed.txt ] && grep resume files_changed.txt > /dev/null; then
+            echo "Found resume update."
+            echo RESUME_UPDATE=1 >> $GITHUB_ENV
+            echo "RESUME_LATEST=$(cat commits.txt | xargs git show --oneline --pretty="format:%H" --name-only --diff-filter=AM | sed -e ':a' -e 'N' -e '$!ba' -e 's/\([^\n]\)\n\([^\n]\)/\1 \2/g' | grep resume | awk  'NR==1 {print $1}')" >> $GITHUB_ENV
+          else
+            echo "No resume update found."
+            echo RESUME_UPDATE=0 >> $GITHUB_ENV
+          fi
+
+      - name: Get commit hashes
+        run: |
+          echo "RESUME_LATEST: $RESUME_LATEST"
+          echo "CV_LATEST: $CV_LATEST"
+
+          if [ "$RESUME_LATEST" = "${{github.sha}}" ]; then
+              echo "RESUME_LATEST is the latest commit."
+              echo "OTHER_TO_DOWNLOAD=$RESUME_LATEST" >> $GITHUB_ENV
+          fi
+          if [ "$CV_LATEST" = "${{github.sha}}" ]; then
+              echo "CV_LATEST is the latest commit."
+              echo "OTHER_TO_DOWNLOAD=$CV_LATEST" >> $GITHUB_ENV
+          fi
+
+      - name: Get PDF(s) from older build
+        uses: actions/download-artifact@v7
+        with:
+          name: pdfs-${{env.OTHER_TO_DOWNLOAD}}
+          path: .
+
+      - name: Get PDF(s) from current build and overwrite old PDF(s) if needed
         uses: actions/download-artifact@v7
         with:
           name: pdfs-${{github.sha}}
           path: .
+
+      - name: Create CHANGLOG from commits where PDFs were updated
+        runs: |
+          cat commits.txt | xargs git show -s --date=short --pretty=format:"%ad %s" > ${{github.workspace}}-CHANGELOG.txt
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
@@ -100,3 +163,4 @@ jobs:
           files: |
             *.pdf
           token: ${{ secrets.TOKEN }}
+          body_path: ${{ github.workspace }}-CHANGELOG.txt
