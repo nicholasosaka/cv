@@ -3,9 +3,12 @@ on:
   push:
     paths:
       - "**.tex"
+    tags:
+      - "*"
 
 jobs:
   build_pdfs:
+    if: github.ref_type == 'branch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -47,7 +50,7 @@ jobs:
   #           *.pdf
   #         token: ${{ secrets.TOKEN }}
 
-  update_web:
+  open_pr:
     needs: build_pdfs
     runs-on: ubuntu-latest
     steps:
@@ -79,3 +82,18 @@ jobs:
           title: Update Resume/CV PDFs to latest
           branch: cv-update
           delete-branch: true
+
+  create_release:
+    if: github.ref_type == 'tag'
+    needs: build_pdfs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            *.pdf
+          token: ${{ secrets.TOKEN }}
