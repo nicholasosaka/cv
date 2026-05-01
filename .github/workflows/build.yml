@@ -3,8 +3,6 @@ on:
   push:
     paths:
       - "**.tex"
-    tags:
-      - "**"
 
 jobs:
   build_pdfs:
