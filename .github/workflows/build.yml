@@ -33,7 +33,7 @@ jobs:
           root_file: industry/resume.tex
   
       - name: Upload PDFs as artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: pdfs
           path: |
