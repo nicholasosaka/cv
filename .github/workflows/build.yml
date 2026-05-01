@@ -21,13 +21,13 @@ jobs:
               - 'industry/**.tex'
 
       - name: Compile CV PDF
-        uses: xu-cheng/latex-action@v4
+        uses: xu-cheng/latex-action@v2
         if: steps.changes.outputs.academic == 'true'
         with:
           root_file: academic/cv.tex
 
       - name: Compile Resume PDF
-        uses: xu-cheng/latex-action@v4
+        uses: xu-cheng/latex-action@v2
         if: steps.changes.outputs.industry == 'true'
         with:
           root_file: industry/resume.tex
@@ -57,7 +57,7 @@ jobs:
           repository: nicholasosaka/nosaka.xyz
           path: nosaka.xyz
       - name: Get PDFs from build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v7
         with:
           name: pdfs
           path: nosaka.xyz/public/
@@ -65,16 +65,17 @@ jobs:
       - name: Verify PDFs
         run: |
           ls -l nosaka.xyz/public/
-  #     - name: Create Pull Request
-  #       uses: peter-evans/create-pull-request@v5
-  #       with:
-  #         token: ${{ secrets.TOKEN }}
-  #         path: nosaka.xyz
-  #         add-paths: |
-  #           public/*.pdf
-  #         commit-message: Update Resume/CV PDFs
-  #         committer: Nicholas Osaka <nicholas.osaka@gmail.com>
-  #         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-  #         title: Update Resume/CV PDFs to latest
-  #         branch: cv-update
-  #         delete-branch: true
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.TOKEN }}
+          path: nosaka.xyz
+          add-paths: |
+            public/*.pdf
+          commit-message: Update Resume/CV PDFs
+          committer: Nicholas Osaka <nicholas.osaka@gmail.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          title: Update Resume/CV PDFs to latest
+          branch: cv-update
+          delete-branch: true
