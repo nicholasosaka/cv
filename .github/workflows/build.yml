@@ -8,7 +8,6 @@ on:
 
 jobs:
   build_pdfs:
-    if: github.ref_type == 'branch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -88,8 +87,11 @@ jobs:
     needs: build_pdfs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v5
+      - name: Get PDFs from build
+        uses: actions/download-artifact@v7
+        with:
+          name: pdfs
+          path: .
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
